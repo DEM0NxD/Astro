@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astro AIO</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1a0000;
+  --accent: #ff3b3b;
+  --accent2: #ff6666;
+  --card-bg: rgba(50, 0, 0, 0.7);
+  --text-muted: #ffb3b3;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:Inter,sans-serif;
+  background: linear-gradient(135deg,var(--bg),#500000);
+  background-size:400% 400%;
+  animation:gradientBG 15s ease infinite;
+  color:#fff5f5;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+}
+@keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+/* Particles */
+#particles{
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  pointer-events:none;
+  background: transparent;
+}
+
+/* Hero */
+.hero{padding:120px 20px;text-align:center;position:relative;z-index:1;}
+.hero .avatar{width:160px;height:160px;margin:0 auto 20px;border-radius:25px;box-shadow:0 0 50px var(--accent2);animation:float 4s ease-in-out infinite;transition:0.5s;}
+.hero .avatar img{width:100%;height:100%;object-fit:cover;}
+.hero .avatar:hover{transform:scale(1.2) rotate(5deg);box-shadow:0 0 70px var(--accent2);}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+.hero h1{font-size:56px;margin:12px 0;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1;}
+.hero p.lead{color:var(--text-muted);margin:6px 0 24px;font-size:18px;}
+
+.cta{display:inline-flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
+.btn{background:transparent;border:1px solid rgba(255,255,255,0.2);padding:14px 28px;border-radius:999px;color:#fff;font-weight:600;text-decoration:none;transition:all 0.3s;backdrop-filter:blur(4px);}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));border:none;box-shadow:0 0 20px rgba(255,59,59,0.5);}
+.btn:hover{transform:scale(1.1);box-shadow:0 0 40px rgba(255,102,102,0.9);}
+.btn:active{transform:scale(0.95);}
+
+/* Features */
+.features{max-width:1200px;margin:80px auto;padding:0 20px;position:relative;z-index:1;}
+.features h2{color:var(--accent2);text-align:center;margin-bottom:50px;font-size:36px;letter-spacing:1px;}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;}
+.feature-card{background:var(--card-bg);color:#fff;padding:25px 20px;border-radius:20px;text-align:center;font-weight:600;box-shadow:0 6px 20px rgba(255,59,59,0.3);backdrop-filter:blur(8px);transition:all 0.3s;opacity:0;transform:translateY(30px);}
+.feature-card p{font-weight:400;font-size:14px;color:var(--text-muted);margin-top:12px;}
+.feature-card:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 10px 40px rgba(255,102,102,0.7);}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+
+/* Premium Section */
+.premium .feature-card p:last-child{margin-top:15px;color:#fff;font-weight:600;}
+.subscribe-btn{display:inline-block;margin-top:15px;padding:10px 24px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;font-weight:600;text-decoration:none;transition:0.3s;}
+.subscribe-btn:hover{transform:scale(1.05);box-shadow:0 0 25px var(--accent2);}
+
+/* Footer */
+footer{max-width:1100px;margin:40px auto;padding:20px;color:var(--text-muted);text-align:center;position:relative;z-index:1;font-size:14px;}
+
+/* Responsive */
+@media(max-width:880px){.hero h1{font-size:42px;}.feature-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<header class="hero">
+  <div class="avatar"><img src="astro.png" alt="Astro Bot"></div>
+  <h1>Astro AIO — Moderation, Security, Utilities & AI</h1>
+  <p class="lead">All-in-one bot with Moderation, Security, AI & Utility commands for your server.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1432628088318988290&permissions=8&integration_type=0&scope=bot">Invite Bot</a>
+    <a class="btn" href="https://discord.gg/XbfvYQVKT7">Discord Server</a>
+  </div>
+</header>
+
+<section class="features">
+  <h2>🏠 General Features</h2>
+  <div class="feature-grid">
+    <div class="feature-card">🔊 Voice<p>High-quality voice features and music streaming.</p></div>
+    <div class="feature-card">🎮 Games<p>Fun games to play with server members.</p></div>
+    <div class="feature-card">👋 Welcomer<p>Custom welcome messages for new members.</p></div>
+    <div class="feature-card">🎫 Ticketing<p>Manage support requests efficiently.</p></div>
+    <div class="feature-card">✏️ Auto Setup<p>Quick server setup commands.</p></div>
+    <div class="feature-card">🧩 Autorole<p>Automatically assign roles to new members.</p></div>
+    <div class="feature-card">🎉 Fun<p>Interactive fun commands for everyone.</p></div>
+    <div class="feature-card">📜 Logging<p>Keep track of server events and messages.</p></div>
+  </div>
+</section>
+
+<section class="features">
+  <h2>🪐 Bot Features</h2>
+  <div class="feature-grid">
+    <div class="feature-card">🛡 Security<p>Protect your server from raids and spam.</p></div>
+    <div class="feature-card">🤖 Automod<p>Automatic moderation for messages and links.</p></div>
+    <div class="feature-card">🛠 Utility<p>Helpful tools for server management.</p></div>
+    <div class="feature-card">🎵 Music<p>Play music from YouTube, Spotify & more.</p></div>
+    <div class="feature-card">🛡 Moderation<p>Ban, kick, mute and manage members.</p></div>
+    <div class="feature-card">🎁 Giveaway<p>Create giveaways with winners and timers.</p></div>
+    <div class="feature-card">🤖 AI<p>AI-powered text and suggestions for your server.</p></div>
+    <div class="feature-card">💾 Backup<p>Backup server roles and settings.</p></div>
+    <div class="feature-card">📺 Roleplay<p>Interactive roleplay commands for engagement.</p></div>
+    <div class="feature-card">📝 Staff Application<p>Collect and manage applications for staff.</p></div>
+  </div>
+</section>
+
+<section class="features premium">
+  <h2>💎 Premium Features</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      ✨ <strong>No-Prefix</strong>
+      <p>Use commands without any prefix for faster interaction.</p>
+      <a class="subscribe-btn" href="https://discord.gg/XbfvYQVKT7" target="_blank">Subscribe Now</a>
+    </div>
+    <div class="feature-card">
+      🛠 <strong>Custom Bot Features</strong>
+      <p>Get access to exclusive custom commands and AI features.</p>
+      <a class="subscribe-btn" href="https://discord.gg/XbfvYQVKT7" target="_blank">Subscribe Now</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 Astro AIO Bot. All rights reserved.</footer>
+
+<script>
+// Floating particles
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+let w=canvas.width=window.innerWidth;
+let h=canvas.height=window.innerHeight;
+
+window.addEventListener('resize',()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;});
+
+class Particle{
+  constructor(){
+    this.x=Math.random()*w;
+    this.y=Math.random()*h;
+    this.size=Math.random()*3+1;
+    this.speedX=(Math.random()-0.5)*0.5;
+    this.speedY=(Math.random()-0.5)*0.5;
+    this.color=`rgba(255,102,102,${Math.random()*0.6+0.3})`;
+  }
+  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0)this.x=w;if(this.x>w)this.x=0;if(this.y<0)this.y=h;if(this.y>h)this.y=0;}
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=this.color;ctx.fill();}
+}
+
+const particles=[];for(let i=0;i<120;i++)particles.push(new Particle());
+function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
+animate();
+
+// Scroll fade animation
+const cards=document.querySelectorAll('.feature-card');
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.animation='fadeUp 0.6s forwards';}})},{threshold:0.2});
+cards.forEach(card=>observer.observe(card));
+</script>
+
+</body>
+</html>
