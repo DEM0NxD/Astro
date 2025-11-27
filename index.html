@@ -11,23 +11,16 @@
   --accent: #7a00ff;
   --accent2: #b266ff;
   --card-bg: rgba(30, 0, 40, 0.6);
-  --text-muted: #d5b3ff;
+  --text-muted: #e5ccff;
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
 body{
   font-family:Inter,sans-serif;
-  background: linear-gradient(135deg,var(--bg),#0f001a);
-  background-size:400% 400%;
-  animation:gradientBG 15s ease infinite;
+  background: #000000; /* PURE BLACK BACKGROUND */
   color:#ffffff;
   overflow-x:hidden;
   scroll-behavior:smooth;
-}
-@keyframes gradientBG{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
 }
 
 /* Particles */
@@ -64,10 +57,7 @@ body{
 .hero h1{
   font-size:56px;
   margin:12px 0;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  line-height:1.1;
+  color:white; /* WHITE TEXT */
 }
 .hero p.lead{
   color:var(--text-muted);
@@ -79,7 +69,7 @@ body{
 .cta{display:inline-flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
 .btn{
   background:transparent;
-  border:1px solid rgba(255,255,255,0.2);
+  border:2px solid var(--accent2);
   padding:14px 28px;
   border-radius:999px;
   color:#fff;
@@ -88,11 +78,14 @@ body{
   transition:all 0.3s;
   backdrop-filter:blur(4px);
 }
+
+/* Purple Button */
 .btn.primary{
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   border:none;
   box-shadow:0 0 20px rgba(178,102,255,0.5);
 }
+
 .btn:hover{
   transform:scale(1.1);
   box-shadow:0 0 40px rgba(178,102,255,0.9);
@@ -168,9 +161,12 @@ footer{
 <canvas id="particles"></canvas>
 
 <header class="hero">
-  <div class="avatar"><img src="astro.png" alt="Astro Bot"></div>
+  <!-- FIXED: Correct filename Astro.png -->
+  <div class="avatar"><img src="Astro.png" alt="Astro Bot"></div>
+
   <h1>Astro AIO — Moderation, Security & Utilities</h1>
   <p class="lead">All-in-one bot for Moderation, Anti-Nuke, Utility & more.</p>
+
   <div class="cta">
     <a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1432628088318988290&permissions=8&scope=bot">Invite Bot</a>
     <a class="btn" href="https://discord.gg/XbfvYQVKT7">Discord Server</a>
@@ -199,7 +195,7 @@ footer{
     <div class="feature-card">🛠 Utility<p>Helpful tools for server management.</p></div>
     <div class="feature-card">🎵 Music<p>Play music from YouTube, Spotify & more.</p></div>
     <div class="feature-card">🛡 Moderation<p>Ban, kick, mute and manage members.</p></div>
-    <div class="feature-card">🎁 Giveaway<p>Create giveaways with winners and timers.</p></div>
+    <div class="feature-card">🎁 Giveaway<p>Create giveaways with timers and winners.</p></div>
   </div>
 </section>
 
@@ -249,7 +245,7 @@ function animate(){
 }
 animate();
 
-// Scroll fade animation
+// Scroll Fade Animation
 const cards=document.querySelectorAll('.feature-card');
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.style.animation='fadeUp 0.6s forwards';}});
