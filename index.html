@@ -7,26 +7,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #1a0000;
-  --accent: #ff3b3b;
-  --accent2: #ff6666;
-  --card-bg: rgba(50, 0, 0, 0.7);
-  --text-muted: #ffb3b3;
+  --bg: #000000;
+  --accent: #ff1e1e;
+  --accent2: #ff4d4d;
+  --card-bg: rgba(20, 20, 20, 0.7);
+  --text-muted: #bbbbbb;
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
 body{
   font-family:Inter,sans-serif;
-  background: linear-gradient(135deg,var(--bg),#500000);
+  background: linear-gradient(135deg,var(--bg),#111111);
   background-size:400% 400%;
   animation:gradientBG 15s ease infinite;
-  color:#fff5f5;
+  color:#ffffff;
   overflow-x:hidden;
   scroll-behavior:smooth;
 }
 @keyframes gradientBG{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
 
-/* Particles */
 #particles{
   position: fixed;
   top:0; left:0;
@@ -34,7 +33,6 @@ body{
   height:100%;
   z-index:-1;
   pointer-events:none;
-  background: transparent;
 }
 
 /* Hero */
@@ -68,7 +66,7 @@ body{
 .subscribe-btn:hover{transform:scale(1.05);box-shadow:0 0 25px var(--accent2);}
 
 /* Footer */
-footer{max-width:1100px;margin:40px auto;padding:20px;color:var(--text-muted);text-align:center;position:relative;z-index:1;font-size:14px;}
+footer{max-width:1100px;margin:40px auto;padding:20px;color:var(--text-muted);text-align:center;font-size:14px;}
 
 /* Responsive */
 @media(max-width:880px){.hero h1{font-size:42px;}.feature-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}}
@@ -80,8 +78,8 @@ footer{max-width:1100px;margin:40px auto;padding:20px;color:var(--text-muted);te
 
 <header class="hero">
   <div class="avatar"><img src="astro.png" alt="Astro Bot"></div>
-  <h1>Astro AIO — Moderation, Security, Utilities & AI</h1>
-  <p class="lead">All-in-one bot with Moderation, Security, AI & Utility commands for your server.</p>
+  <h1>Astro AIO — Moderation, Security & Utilities</h1>
+  <p class="lead">All-in-one bot with Moderation, Security & Utility commands for your server.</p>
   <div class="cta">
     <a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1432628088318988290&permissions=8&integration_type=0&scope=bot">Invite Bot</a>
     <a class="btn" href="https://discord.gg/XbfvYQVKT7">Discord Server</a>
@@ -111,10 +109,6 @@ footer{max-width:1100px;margin:40px auto;padding:20px;color:var(--text-muted);te
     <div class="feature-card">🎵 Music<p>Play music from YouTube, Spotify & more.</p></div>
     <div class="feature-card">🛡 Moderation<p>Ban, kick, mute and manage members.</p></div>
     <div class="feature-card">🎁 Giveaway<p>Create giveaways with winners and timers.</p></div>
-    <div class="feature-card">🤖 AI<p>AI-powered text and suggestions for your server.</p></div>
-    <div class="feature-card">💾 Backup<p>Backup server roles and settings.</p></div>
-    <div class="feature-card">📺 Roleplay<p>Interactive roleplay commands for engagement.</p></div>
-    <div class="feature-card">📝 Staff Application<p>Collect and manage applications for staff.</p></div>
   </div>
 </section>
 
@@ -128,7 +122,7 @@ footer{max-width:1100px;margin:40px auto;padding:20px;color:var(--text-muted);te
     </div>
     <div class="feature-card">
       🛠 <strong>Custom Bot Features</strong>
-      <p>Get access to exclusive custom commands and AI features.</p>
+      <p>Access to exclusive custom commands.</p>
       <a class="subscribe-btn" href="https://discord.gg/XbfvYQVKT7" target="_blank">Subscribe Now</a>
     </div>
   </div>
@@ -137,7 +131,6 @@ footer{max-width:1100px;margin:40px auto;padding:20px;color:var(--text-muted);te
 <footer>© 2025 Astro AIO Bot. All rights reserved.</footer>
 
 <script>
-// Floating particles
 const canvas=document.getElementById('particles');
 const ctx=canvas.getContext('2d');
 let w=canvas.width=window.innerWidth;
@@ -152,7 +145,7 @@ class Particle{
     this.size=Math.random()*3+1;
     this.speedX=(Math.random()-0.5)*0.5;
     this.speedY=(Math.random()-0.5)*0.5;
-    this.color=`rgba(255,102,102,${Math.random()*0.6+0.3})`;
+    this.color=`rgba(255,0,0,${Math.random()*0.6+0.3})`;
   }
   update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0)this.x=w;if(this.x>w)this.x=0;if(this.y<0)this.y=h;if(this.y>h)this.y=0;}
   draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=this.color;ctx.fill();}
@@ -162,7 +155,6 @@ const particles=[];for(let i=0;i<120;i++)particles.push(new Particle());
 function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
 animate();
 
-// Scroll fade animation
 const cards=document.querySelectorAll('.feature-card');
 const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.animation='fadeUp 0.6s forwards';}})},{threshold:0.2});
 cards.forEach(card=>observer.observe(card));
