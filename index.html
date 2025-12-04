@@ -494,33 +494,23 @@
         <i class="fab fa-discord"></i>
     </a>
     
-<div class="container">
-    <!-- Home Section -->
-    <section id="home">
-        <div class="logo stagger active" data-delay="0">
-            <div class="logo-icon">
-                <i class="fas fa-robot"></i>
+    <div class="container">
+        <section id="home">
+            <div class="logo stagger active" data-delay="0">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
             </div>
-        </div>
-
-        <h1 class="stagger active" data-delay="100">Astro</h1>
-        <p class="tagline stagger active" data-delay="200">Astro landing Page</p>
-
-        <div class="hero-buttons stagger active" data-delay="300">
-            <a href="https://discord.com/oauth2/authorize?client_id=1446050408601747618&permissions=8&integration_type=0&scope=bot" 
-               class="btn" 
-               id="add-to-discord-btn" 
-               target="_blank">
-                <i class="fas fa-plus"></i> Add to Discord
-            </a>
-
-            <a href="#commands" class="btn" id="view-commands-btn">
-                <i class="fas fa-terminal"></i> View Commands
-            </a>
-        </div>
-    </section>
-</div>
-
+            <h1 class="stagger active" data-delay="100">Astro</h1>
+            <p class="tagline stagger active" data-delay="200">Astro landing Page</p>
+            <div class="hero-buttons stagger active" data-delay="300">
+                <a href="https://discord.com/oauth2/authorize?client_id=1446050408601747618&permissions=8&integration_type=0&scope=bot" target="_blank" class="btn" id="add-to-discord-btn">
+                    <i class="fas fa-plus"></i> Add to Discord
+                </a>
+                <a href="#commands" class="btn" id="view-commands-btn">
+                    <i class="fas fa-terminal"></i> View Commands
+                </a>
+            </div>
             
             <div class="section-header stagger active" data-delay="400">
                 <h2 class="section-title">Powerful Features</h2>
@@ -635,7 +625,7 @@
                 
                 <div class="command-card stagger active" data-delay="2000">
                     <h3 class="command-name">/afk</h3>
-                    <p class="command-description">Translates text from one language to another.</p>
+                    <p class="command-description">Sets your status as Away From Keyboard with a reason.</p>
                     <div class="command-usage">/afk [reason]</div>
                 </div>
             </div>
@@ -739,12 +729,12 @@
             navigateToSection('commands');
         });
         
-        // Add event listener to "Add to Discord" button
-        document.getElementById('add-to-discord-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            // In a real implementation, this would lead to the Discord OAuth2 URL
-            alert('This would lead to the Discord bot authorization page');
-        });
+        // The original logic for "Add to Discord" is now handled directly by the <a> tag's href attribute:
+        // document.getElementById('add-to-discord-btn').addEventListener('click', function(e) {
+        //     e.preventDefault();
+        //     // In a real implementation, this would lead to the Discord OAuth2 URL
+        //     alert('This would lead to the Discord bot authorization page');
+        // });
         
         // Initialize staggered animations on page load
         window.addEventListener('load', () => {
